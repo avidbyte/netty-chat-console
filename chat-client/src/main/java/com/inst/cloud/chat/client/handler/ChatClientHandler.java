@@ -90,9 +90,6 @@ public class ChatClientHandler extends SimpleChannelInboundHandler<IMMessage> {
      */
     private boolean sendMsg(IMMessage msg) {
         ctx.channel().writeAndFlush(msg);
-        if (msg.getCmd().equals(IMP.CHAT.getName())) {
-            System.out.println("继续输入开始对话...");
-        }
         boolean status = msg.getCmd().equals(IMP.LOGOUT.getName());
         if(status){
             System.exit(0);
